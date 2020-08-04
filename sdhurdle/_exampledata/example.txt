@@ -1,0 +1,179 @@
+--------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/johanneskunz/Google Drive/Googlesitesfolder/downloads/sdhurdle/_exampledata/example.txt
+  log type:  text
+ opened on:   4 Oct 2016, 21:32:37
+
+. 
+. //call programm
+. qui do ../sdhurlde.do
+
+. qui do ../sdhurdle_gh.do
+
+. qui do ../sdhurdle_rep.do     
+
+. qui do ../sdhurdle_rep_gh.do
+
+. 
+. su 
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+         age |      1542    42.17704    11.45911         20         60
+        male |      1542    .4656291    .4989791          0          1
+nrdoctorvi~s |      1542    2.036316    2.486559          0         15
+       delta |      1542    .5467907    .2655929   .0108696          1
+        linc |      1542    10.53517     .640234    4.26943   12.70802
+
+. 
+. //estimate
+. sdh          nrdoctorvisits age  male linc 
+
+initial:       log likelihood = -3129.8362
+rescale:       log likelihood = -3129.8362
+rescale eq:    log likelihood = -3129.8362
+Iteration 0:   log likelihood = -3129.8362  
+Iteration 1:   log likelihood =  -3081.384  
+Iteration 2:   log likelihood = -3081.3381  
+Iteration 3:   log likelihood = -3081.3381  
+
+Stochastic dhurdel regression                     Number of obs   =       1542
+                                                  Wald chi2(3)    =      31.85
+Log likelihood = -3081.3381                       Prob > chi2     =     0.0000
+
+------------------------------------------------------------------------------
+nrdoctorvi~s |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+eq1          |
+         age |   .0076561   .0029085     2.63   0.008     .0019555    .0133568
+        male |  -.2959077   .0659762    -4.49   0.000    -.4252187   -.1665968
+        linc |  -.1094872    .051282    -2.14   0.033     -.209998   -.0089764
+       _cons |   1.017018   .5412846     1.88   0.060    -.0438804    2.077916
+-------------+----------------------------------------------------------------
+eq2          |
+         age |   .0106093   .0024666     4.30   0.000      .005775    .0154437
+        male |  -.0531885   .0566124    -0.94   0.347    -.1641467    .0577697
+        linc |  -.0588169   .0423145    -1.39   0.165    -.1417519     .024118
+       _cons |   1.501413   .4511144     3.33   0.001     .6172446    2.385581
+------------------------------------------------------------------------------
+
+. sdhrep   nrdoctorvisits age  male linc 
+
+initial:       log likelihood =  -3074.718
+rescale:       log likelihood =  -3074.718
+rescale eq:    log likelihood =  -3074.718
+Iteration 0:   log likelihood =  -3074.718  
+Iteration 1:   log likelihood = -3035.0767  
+Iteration 2:   log likelihood = -3034.9484  
+Iteration 3:   log likelihood = -3034.9484  
+
+Stochastic dhurdel reporting time regression      Number of obs   =       1542
+                                                  Wald chi2(3)    =      27.88
+Log likelihood = -3034.9484                       Prob > chi2     =     0.0000
+
+------------------------------------------------------------------------------
+nrdoctorvi~s |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+eq1          |
+         age |   .0069914   .0031294     2.23   0.025     .0008579    .0131249
+        male |  -.3012789   .0705564    -4.27   0.000    -.4395668   -.1629909
+        linc |  -.1169422   .0547309    -2.14   0.033    -.2242127   -.0096716
+       _cons |   .8652699    .579167     1.49   0.135    -.2698766    2.000416
+-------------+----------------------------------------------------------------
+eq2          |
+         age |   .0095231   .0029339     3.25   0.001     .0037728    .0152734
+        male |  -.0132974   .0658903    -0.20   0.840      -.14244    .1158451
+        linc |  -.0378564   .0496038    -0.76   0.445     -.135078    .0593652
+       _cons |   1.555667   .5318529     2.92   0.003     .5132544    2.598079
+------------------------------------------------------------------------------
+
+. sdhgh    nrdoctorvisits age  male linc , qp(30)
+
+initial:       log likelihood = -2944.3132
+rescale:       log likelihood = -2944.3132
+rescale eq:    log likelihood = -2944.3132
+Iteration 0:   log likelihood = -2944.3132  
+Iteration 1:   log likelihood = -2941.4075  (backed up)
+Iteration 2:   log likelihood = -2941.3564  (backed up)
+Iteration 3:   log likelihood = -2940.7676  (backed up)
+Iteration 4:   log likelihood = -2940.3221  (backed up)
+Iteration 5:   log likelihood = -2940.1277  (backed up)
+Iteration 6:   log likelihood = -2940.0989  (backed up)
+Iteration 7:   log likelihood = -2939.9514  
+Iteration 8:   log likelihood = -2939.7393  
+Iteration 9:   log likelihood = -2939.5742  
+Iteration 10:  log likelihood = -2939.5641  
+Iteration 11:  log likelihood =  -2939.563  
+Iteration 12:  log likelihood = -2939.5616  
+Iteration 13:  log likelihood = -2939.5616  
+
+Stochastic dhurdle gauss-hermit regression        Number of obs   =       1542
+                                                  Wald chi2(3)    =      36.01
+Log likelihood = -2939.5616                       Prob > chi2     =     0.0000
+
+------------------------------------------------------------------------------
+nrdoctorvi~s |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+eq1          |
+         age |   .0117218   .0037108     3.16   0.002     .0044489    .0189948
+        male |  -.3995524   .0843877    -4.73   0.000    -.5649493   -.2341555
+        linc |  -.1371843   .0665306    -2.06   0.039     -.267582   -.0067866
+       _cons |   1.294427   .7029047     1.84   0.066     -.083241    2.672095
+-------------+----------------------------------------------------------------
+eq2          |
+         age |     .00971    .003386     2.87   0.004     .0030735    .0163464
+        male |  -.1025914   .0780776    -1.31   0.189    -.2556208    .0504379
+        linc |  -.1023836   .0583787    -1.75   0.079    -.2168038    .0120366
+       _cons |   1.329812   .6187583     2.15   0.032     .1170675    2.542555
+-------------+----------------------------------------------------------------
+lnalpha      |
+       _cons |  -.3218002   .0609922    -5.28   0.000    -.4413428   -.2022576
+------------------------------------------------------------------------------
+
+. sdhrepgh nrdoctorvisits age  male linc , qp(30)
+
+initial:       log likelihood = -2943.9451
+rescale:       log likelihood = -2943.9451
+rescale eq:    log likelihood = -2943.9451
+Iteration 0:   log likelihood = -2943.9451  
+Iteration 1:   log likelihood = -2943.4774  (backed up)
+Iteration 2:   log likelihood = -2943.4624  (backed up)
+Iteration 3:   log likelihood = -2942.9873  (backed up)
+Iteration 4:   log likelihood = -2942.8592  (backed up)
+Iteration 5:   log likelihood = -2942.8565  (backed up)
+Iteration 6:   log likelihood = -2942.7096  (backed up)
+Iteration 7:   log likelihood = -2941.7436  
+Iteration 8:   log likelihood = -2941.6626  (backed up)
+Iteration 9:   log likelihood =  -2941.454  
+Iteration 10:  log likelihood = -2941.4538  
+Iteration 11:  log likelihood = -2941.4527  
+Iteration 12:  log likelihood = -2941.4526  
+Iteration 13:  log likelihood = -2941.4526  
+
+Stochastic dhurdle rep-time gauss-hermit regression
+
+                                                  Number of obs   =       1542
+                                                  Wald chi2(3)    =      31.74
+Log likelihood = -2941.4526                       Prob > chi2     =     0.0000
+
+------------------------------------------------------------------------------
+nrdoctorvi~s |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+eq1          |
+         age |   .0116149    .004316     2.69   0.007     .0031557    .0200741
+        male |  -.4383779   .0980737    -4.47   0.000    -.6305988   -.2461571
+        linc |  -.1773785    .074662    -2.38   0.018    -.3237133   -.0310436
+       _cons |   1.650941   .7901633     2.09   0.037     .1022492    3.199632
+-------------+----------------------------------------------------------------
+eq2          |
+         age |   .0089594   .0039709     2.26   0.024     .0011766    .0167422
+        male |  -.0492042   .0908769    -0.54   0.588    -.2273196    .1289112
+        linc |   -.056916   .0649471    -0.88   0.381    -.1842101    .0703781
+       _cons |   .9699388   .6889264     1.41   0.159    -.3803321     2.32021
+-------------+----------------------------------------------------------------
+lnalpha      |
+       _cons |  -.3719813   .0766572    -4.85   0.000    -.5222267    -.221736
+------------------------------------------------------------------------------
+
+. 
+. cap log close 
