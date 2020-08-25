@@ -1,6 +1,6 @@
 This folder contains Monte Carlo simulations and estimation programs for the
 stochastic dynamic hurdle model developed in the paper: 
-	Kunz & Winkelmann, 2016, An Econometric Model of Health Care Demand With Nonlinear Pricing, Health Economics, forthcoming. 
+	Kunz & Winkelmann, 2016, An Econometric Model of Health Care Demand With Nonlinear Pricing, Health Economics, Health Economics 26 (6), 691-702. 
 
 Note: the ztpnm package needs to be installed:  
 	Farbmacher, H. (2011). “Estimation of hurdle models for overdispersed count data” Stata Journal. 11, Number 1, pp. 82–94.
